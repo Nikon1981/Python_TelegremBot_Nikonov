@@ -1,7 +1,7 @@
 # Игра крестики-нолики
 
 
-# Функця, которая рисует доску размером 3х3. 
+# Функця, которая рисует доску размером 3х3.
 def draw_board(board):
     # запустить цикл, который проходит по всем 3 строкам доски
     for i in range(3):
@@ -12,19 +12,19 @@ def draw_board(board):
 
 
 # Функция, которая позволяет пользователю делать ход.
-def ask_and_make_move(player, board):
-    # дать игроку возможность сделать ход, то есто есть ввести координаты
-    x, y = input(f"{player}, enter x and y coordinates (e.g. 0 0): ").strip().split()
-    # преобразовать координаты в целые числа
-    x, y = int(x), int(y) 
-    # задать условие, которое проверяет, 
-    # находится ли координата в пределах поля и свободно ли место
-    if (0 <= x <= 2) and (0 <= y <= 2) and (board[x][y] == " "): 
-        board[x][y] = player 
-        # если свободно, записать значение игрока (Х или 0) в ячейку
-    else:
-        print("That spot is already taken. Try again.")
-        ask_and_make_move(player, board)
+# def ask_and_make_move(player, board):
+#     # дать игроку возможность сделать ход, то есто есть ввести координаты
+#     x, y = input(f"{player}, enter x and y coordinates (e.g. 0 0): ").strip().split()
+#     # преобразовать координаты в целые числа
+#     x, y = int(x), int(y)
+#     # задать условие, которое проверяет,
+#     # находится ли координата в пределах поля и свободно ли место
+#     if (0 <= x <= 2) and (0 <= y <= 2) and (board[x][y] == " "):
+#         board[x][y] = player
+#         # если свободно, записать значение игрока (Х или 0) в ячейку
+#     else:
+#         print("That spot is already taken. Try again.")
+#         ask_and_make_move(player, board)
 
 
 def ask_and_make_move(player, board):
@@ -35,9 +35,10 @@ def ask_and_make_move(player, board):
 
 def ask_move(player, board):
     # дать игроку возможность сделать ход, то есто есть ввести координаты
-    x, y = input(f"{player}, enter x and y coordinates (e.g. 0 0): ").strip().split()
+    x, y = input(
+        f"{player}, enter x and y coordinates (e.g. 0 0): ").strip().split()
     # преобразовать координаты в целые числа
-    x, y = int(x), int(y) 
+    x, y = int(x), int(y)
     # задать условие, которое проверяет, свободно ли место
     if (0 <= x <= 2) and (0 <= y <= 2) and (board[x][y] == " "):
         # если клетка свободна, вернуть её координаты
@@ -45,7 +46,7 @@ def ask_move(player, board):
     else:
         print("Клетка занята. Введите координаты еще раз.")
         return ask_move(player, board)
-    
+
 
 def make_move(player, board, x, y):
     # проверить, что клетка свободна
@@ -104,5 +105,6 @@ def tic_tac_toe():
         restart = input("Хотите сыграть еще раз? (y/n) ")
         if restart.lower() != "y":
             break
+
 
 tic_tac_toe()
