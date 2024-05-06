@@ -35,8 +35,13 @@ def ask_and_make_move(player, board):
 
 def ask_move(player, board):
     # дать игроку возможность сделать ход, то есто есть ввести координаты
-    x, y = input(
-        f"{player}, enter x and y coordinates (e.g. 0 0): ").strip().split()
+    while True:
+        x, y = input(
+            f"{player}, enter x and y coordinates (e.g. 0 0): ").strip().split()
+        if x.isdigit() and y.isdigit():
+            break
+        else:
+            print("You can only enter numbers")
     # преобразовать координаты в целые числа
     x, y = int(x), int(y)
     # задать условие, которое проверяет, свободно ли место
